@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-  username: {
+  name: {
     type: String,
     required: true,
-    unique: true,
+    
   },
   email: {
     type: String,
@@ -15,9 +15,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  preferences: {
+  dietaryPreferences: {
     type: String, // e.g., "Vegetarian", "Vegan", "Standard"
-    default: 'Standard',
+    enum: ['None', 'Vegetarian', 'Vegan', 'Gluten-Free', 'Paleo', 'Keto'],
+    default: 'None',
   },
   createdAt: {
     type: Date,
