@@ -39,8 +39,12 @@ const login = async (req, res) => {
     if (!match) return res.status(400).json({ message: 'Invalid credentials' });
 
     const token = createToken(user._id);
-    user.password = undefined;
-    res.status(200).json({ message:"User logged in successfully",token, user });
+    const userResponse = {
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+    };
+    res.status(200).json({ message:"User logged in successfully",token, userResponse });
   } catch (err) {
     res.status(500).json({ message: 'Server error', error: err.message });
   }
