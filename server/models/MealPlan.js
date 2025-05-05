@@ -5,10 +5,7 @@ const mealPlanSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  ingredients: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'PantryItem',
-  }],
+  ingredients: [Number],
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

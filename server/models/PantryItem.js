@@ -9,6 +9,10 @@ const pantryItemSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  unit: {
+    type: String, 
+    required: true
+  },
   pricePerUnit: {
     type: Number,
     required: true,
