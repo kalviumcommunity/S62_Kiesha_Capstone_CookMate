@@ -43,8 +43,15 @@ const generateWeeklyMealPlan = async (req, res) => {
       date.setDate(today.getDate() + i);  // Increment day by 1 for each iteration
       
       // Generate meal for the specific day
-      const mealPlan = await generateMealForDay(userId, date);
-      weeklyMealPlans.push(mealPlan);
+      try {
+          const mealPlan = await generateMealForDay(userId, date);
+          if (mealPlan) {
+            weeklyMealPlans.push(mealPlan);
+          }
+        } catch (error) {
+          console.error(`Failed to generate meal for day ${date.toLocaleDateString()}:`, error);
+          throw error;
+        }
     } 
     res.status(200).json({
       message: 'Weekly meal plan generated successfully!',
