@@ -6,7 +6,7 @@ const axios = require('axios');
 
 const spoonacularApiKey = process.env.SPOONACULAR_API_KEY;
 // Function to generate meal for one day
-const generateMealForDay = async (userId, date,res) => {
+const generateMealForDay = async (userId, date) => {
   try {
     const pantryItems = await PantryItem.find({ userId });
     const ingredients = pantryItems.map(item => item.name).join(","); 
@@ -28,8 +28,7 @@ const generateMealForDay = async (userId, date,res) => {
     await newMealPlan.save();
     return newMealPlan;
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to generate meal plan', details:err });
+    throw new Error(`Failed to generate meal for ${date.toLocaleDateString()}: ${err.message}`);
   }
 };
 //  generating weekly meal plan
