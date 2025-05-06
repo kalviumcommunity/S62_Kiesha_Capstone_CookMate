@@ -37,7 +37,7 @@ const updatePantryItem = async (req, res) => {
   
       res.status(200).json({ message: 'Pantry item updated successfully', updatedItem });
     } catch (error) {
-      res.status(500).json({ message: 'Error updating pantry item', error });
+      res.status(500).json({ message: 'Error updating pantry item', error:error.message });
     }
   };
 
