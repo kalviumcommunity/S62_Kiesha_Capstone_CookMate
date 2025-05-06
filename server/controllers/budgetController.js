@@ -41,4 +41,24 @@ const setWeeklyBudget = async (req, res) => {
   }
 };
 
-module.exports = {setWeeklyBudget};
+const updateBudget = async (req, res) => {
+    const { id } = req.params;
+    const { weeklyBudget } = req.body;
+  
+    try {
+      const updatedBudget = await Budget.findByIdAndUpdate(
+        id,
+        { weeklyBudget },
+        { new: true }
+      );
+  
+      if (!updatedBudget) {
+        return res.status(404).json({ message: 'Budget not found' });
+      }
+  
+      res.status(200).json({ message: 'Budget updated successfully', updatedBudget });
+    } catch (error) {
+      res.status(500).json({ message: 'Error updating budget', error });
+    }
+  };
+module.exports = {setWeeklyBudget,updateBudget};
