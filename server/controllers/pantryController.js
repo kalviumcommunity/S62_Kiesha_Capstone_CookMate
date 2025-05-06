@@ -41,4 +41,15 @@ const updatePantryItem = async (req, res) => {
     }
   };
 
-module.exports = { addPantryItem , updatePantryItem};
+  const getPantryItems = async (req, res) => {
+    const userId  = req.user.id;
+  
+    try {
+      const items = await PantryItem.find({ userId });
+      res.status(200).json(items);
+    } catch (err) {
+      res.status(500).json({ message: 'Failed to fetch pantry items', error: err.message });
+    }
+  };
+
+module.exports = { addPantryItem , updatePantryItem,getPantryItems};
