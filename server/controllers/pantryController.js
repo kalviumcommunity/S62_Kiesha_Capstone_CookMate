@@ -42,7 +42,7 @@ const updatePantryItem = async (req, res) => {
   };
 
   const getPantryItems = async (req, res) => {
-    const { userId } = req.body;
+    const userId  = req.user.id;
   
     try {
       const items = await PantryItem.find({ userId });
