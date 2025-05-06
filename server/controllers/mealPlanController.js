@@ -65,4 +65,33 @@ const generateWeeklyMealPlan = async (req, res) => {
   }
 };
 
-module.exports = { generateWeeklyMealPlan };
+const getMealPlanForDay = async (req, res) => {
+    const userId = req.user.id;
+    const { date } = req.query;
+  
+    if (!date) {
+      return res.status(400).json({ message: 'Date is required' });
+    }
+  
+    try {
+      const targetDate = new Date(date);
+      const startOfDay = new Date(targetDate.setHours(0, 0, 0, 0));
+      const endOfDay = new Date(targetDate.setHours(23, 59, 59, 999));
+  
+      const mealPlan = await MealPlan.findOne({
+        userId,
+        mealDate: { $gte: startOfDay, $lte: endOfDay },
+      });
+  
+      if (!mealPlan) {
+        return res.status(404).json({ message: 'No meal plan was generated for this date.' });
+      }
+  
+      res.status(200).json({ mealPlan });
+    } catch (err) {
+      res.status(500).json({ message: 'Error retrieving meal plan', error: err.message });
+    }
+  };
+  
+
+module.exports = { generateWeeklyMealPlan, getMealPlanForDay };
