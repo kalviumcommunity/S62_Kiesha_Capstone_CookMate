@@ -7,6 +7,8 @@
 
 ---
 
+
+
 ## Capstone Journey Plan
 
 ###  **Week 1: Project Setup + Pantry System**
@@ -65,4 +67,4 @@
 
 ---
 
-
+## Backend Deployment Link: https://cookmate-backend.onrender.com
