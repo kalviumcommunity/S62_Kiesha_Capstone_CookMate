@@ -1,17 +1,13 @@
 meta {
-  name: Meal Plan for a specific day
+  name: displayAllpantryItems
   type: http
-  seq: 2
+  seq: 3
 }
 
 get {
-  url: http://localhost:8080/meal-plan/meal-plan-day?date= 2025-05-14
+  url: http://localhost:8080/pantry/pantry-items
   body: none
   auth: bearer
-}
-
-params:query {
-  date: 2025-05-14
 }
 
 auth:bearer {

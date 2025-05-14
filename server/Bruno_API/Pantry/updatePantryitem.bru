@@ -1,11 +1,11 @@
 meta {
-  name: Adding Pantry Item
+  name: updatePantryitem
   type: http
-  seq: 1
+  seq: 2
 }
 
-post {
-  url: http://localhost:8080/pantry/add-item
+put {
+  url: http://localhost:8080/pantry/update-item/68239d4ad24a0200477a6757
   body: json
   auth: bearer
 }
@@ -16,13 +16,12 @@ auth:bearer {
 
 body:json {
   {
-  
     "name": "Cheese",
     "quantity": 500,
     "unit": "g",
-    "pricePerUnit": 600,
-    "expirationDate": "2025-12-01"
-  
+    "pricePerUnit": 200,
+    "expirationDate": "2025-05-10",
+    "userId": "68239ae9d24a0200477a6749"
   }
   
 }
