@@ -1,0 +1,28 @@
+meta {
+  name: Adding Pantry Item
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/pantry/add-item
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjM5YWU5ZDI0YTAyMDA0NzdhNjc0OSIsImlhdCI6MTc0NzE2Mzk3MywiZXhwIjoxNzQ3NDIzMTczfQ.cqDrehti0JB8Rs5RcWohMIHMmkd365k3PwUNPZ2uYOw
+}
+
+body:json {
+  {
+  
+    "name": "Cheese",
+    "quantity": 500,
+    "unit": "g",
+    "pricePerUnit": 600,
+    "expirationDate": "2025-12-01"
+  
+  }
+  
+}

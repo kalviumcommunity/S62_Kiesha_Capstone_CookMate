@@ -1,0 +1,22 @@
+meta {
+  name: Updateweekly Budget
+  type: http
+  seq: 2
+}
+
+put {
+  url: http://localhost:8080/budget/update-budget/6824b55e9df0937e4dee3fd6
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjM5YWU5ZDI0YTAyMDA0NzdhNjc0OSIsImlhdCI6MTc0NzIzNTgwMSwiZXhwIjoxNzQ3NDk1MDAxfQ.WHSrzOctJ5o1TGZ2MqPJI28kI_rdand3nQruI3H3uPw
+}
+
+body:json {
+  {
+    "weeklyBudget":"1750"
+  }
+  
+}

@@ -1,0 +1,23 @@
+meta {
+  name: generateMealplan
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/meal-plan/generate-meal-plan
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjM5YWU5ZDI0YTAyMDA0NzdhNjc0OSIsImlhdCI6MTc0NzIzNTgwMSwiZXhwIjoxNzQ3NDk1MDAxfQ.WHSrzOctJ5o1TGZ2MqPJI28kI_rdand3nQruI3H3uPw
+}
+
+body:json {
+  {
+    "userId": "68239ae9d24a0200477a6749"
+    
+    
+  }
+}
