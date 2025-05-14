@@ -1,0 +1,19 @@
+meta {
+  name: mealPlanforAspecificDay
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:8080/meal-plan/meal-plan-day?date=2025-05-14
+  body: none
+  auth: bearer
+}
+
+params:query {
+  date: 2025-05-14
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjM5YWU5ZDI0YTAyMDA0NzdhNjc0OSIsImlhdCI6MTc0NzIzNTgwMSwiZXhwIjoxNzQ3NDk1MDAxfQ.WHSrzOctJ5o1TGZ2MqPJI28kI_rdand3nQruI3H3uPw
+}
