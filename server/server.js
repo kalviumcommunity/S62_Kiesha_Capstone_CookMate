@@ -6,7 +6,7 @@ const userRoutes= require('./routes/userRoutes');
 const budgetRoutes = require('./routes/budgetRoutes');
 const mealPlanRoutes = require('./routes/mealPlanRoutes');
 const pantryRoutes = require('./routes/pantryRoutes');
-
+const cors= require('cors');
 
 dotenv.config();
 
@@ -15,6 +15,8 @@ const app = express();
 // Connecting to DB
 connectDB();
 
+
+app.use(cors());
 app.use(express.json());
 app.use('/auth', authRoutes);
 app.use('/user',userRoutes);
